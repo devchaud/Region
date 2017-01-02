@@ -1,0 +1,124 @@
+<div ng-controller="headerCtrl">
+	<div public-header></div>
+</div>
+<div class="container-fluid">
+	<div class="login-box col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 marginBottom20">
+		<h3 class="pageTitle">Chaincode</h3>
+		<form name="operationForm" novalidate>
+			<p class="text-danger"><b>{{error}}</b></p>
+			<p class="text-success"><b>{{successMsg}}</b></p>
+				<div class="row">
+					<div class="form-group col-md-6">
+						<label for="chaincodeID">Chaincode ID</label>
+						<input type="text" class="form-control" name="chaincodeID" ng-model="chaincodeID" required>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="operation">Select operation</label>
+						<select class="form-control" name="operation" ng-model="operation" ng-options="item as item.operation for item in operationOptions"
+						ng-change="selectOperation(operation)">
+						</select>
+					</div>
+				</div>
+				
+				<h3 class="pageTitle">{{operation.operation}}</h3>
+				<!-- on query selection -->
+				<div ng-show="operation.operation == 'query'">
+					<div class="form-group">
+							<label for="policy">Policy</label>
+							<input type="text" class="form-control" name="policy" ng-model="policy" required>
+						</div>
+				</div>
+				
+				
+				<!-- on invoke selection -->
+				<div ng-show="operation.operation == 'invoke'">
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="regionName">Region Name</label>
+							<input type="text" class="form-control" name="regionName" ng-model="regionName" required>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="insuredId">Insured ID</label>
+							<input type="text" class="form-control" name="insuredId" ng-model="insuredId" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="insured">Insured</label>
+							<input type="text" class="form-control" name="insured" ng-model="insured" required>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="businessArea">Business Area</label>
+							<input type="text" class="form-control" name="businessArea" ng-model="businessArea" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="lineOfBusinessId">Line of business ID</label>
+							<input type="text" class="form-control" name="lineOfBusinessId" ng-model="lineOfBusinessId" required>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="lineOfBusiness">Line of business</label>
+							<input type="text" class="form-control" name="lineOfBusiness" ng-model="lineOfBusiness" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="policy">Policy</label>
+							<input type="text" class="form-control" name="policy" ng-model="policy" required>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="dealId">Deal ID</label>
+							<input type="text" class="form-control" name="dealId" ng-model="dealId" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="dealNum">Deal num</label>
+							<input type="text" class="form-control" name="dealNum" ng-model="dealNum" required>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="brokerId">Broker ID</label>
+							<input type="text" class="form-control" name="brokerId" ng-model="brokerId" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="broker">Broker</label>
+							<input type="text" class="form-control" name="broker" ng-model="broker" required>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="inceptionDate">Inception date</label>
+							<input type="text" class="form-control" name="inceptionDate" ng-model="inceptionDate" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="expirationDate">Expiration date</label>
+							<input type="text" class="form-control" name="expirationDate" ng-model="expirationDate" required>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="carrier">Carrier</label>
+							<input type="text" class="form-control" name="carrier" ng-model="carrier" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="carrierCd">Carrier cd</label>
+							<input type="text" class="form-control" name="carrierCd" ng-model="carrierCd" required>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary"  ng-click="operationCall()">
+						Submit
+					</button>
+				</div>
+			
+		</form>
+	</div>
+</div>
+<div ng-controller="footerCtrl">
+	<div footer-directive></div>
+</div>
