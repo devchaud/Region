@@ -56,7 +56,7 @@ func (t *RegionChaincode) Init(stub shim.ChaincodeStubInterface, function string
 	return nil, nil
 }
 
-// Transaction makes payment of X units from A to B
+// Add region data for the policy
 func (t *RegionChaincode) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	if function == regionIndexTxStr {		
 		return t.RegisterPolicy(stub, args)
