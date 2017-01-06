@@ -7,7 +7,7 @@ package main
 import (
 	"errors"
 	"fmt"
-	"strconv"
+	//"strconv"
 	"encoding/json"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	//"github.com/golang/protobuf/ptypes/timestamp"
@@ -27,7 +27,7 @@ type RegionData struct{
 	LINE_OF_BUSINESS_ID string `json:"LINE_OF_BUSINESS_ID"`
 	LINE_OF_BUSINESS string `json:"LINE_OF_BUSINESS"`
 	POLICY string `json:"POLICY"`
-	DEAL_ID int `json:"DEAL_ID"`
+	DEAL_ID string `json:"DEAL_ID"`
 	DEAL_NUM string `json:"DEAL_NUM"`
 	BROKER_ID string `json:"BROKER_ID"`
 	BROKER string `json:"BROKER"`
@@ -82,7 +82,7 @@ func (t *RegionChaincode)  RegisterPolicy(stub shim.ChaincodeStubInterface, args
 	RegionDataObj.LINE_OF_BUSINESS_ID = args[4]
 	RegionDataObj.LINE_OF_BUSINESS = args[5]
 	RegionDataObj.POLICY = args[6]
-	RegionDataObj.DEAL_ID,err = strconv.Atoi(args[7])
+	RegionDataObj.DEAL_ID = args[7]
 	RegionDataObj.DEAL_NUM = args[8]
 	RegionDataObj.BROKER_ID = args[9]
 	RegionDataObj.BROKER = args[10]
